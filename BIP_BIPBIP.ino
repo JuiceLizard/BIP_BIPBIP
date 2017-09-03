@@ -9,10 +9,8 @@
  * 
  * Left button is for the left player.
  * B button is for the right player.
- * 
  * You lose when you reach the middle of the screen
  * or when the ball touches you when you don't press your button.
- * 
  * The winner has the white on his side.
  * He starts a new game when pressing his button.
  * 
@@ -95,10 +93,12 @@ void loop() {
 
       if (((xBall == (xLeftPlayer - 1)) && !(arduboy.pressed(LEFT_BUTTON))) || (xLeftPlayer > 62)) {
         winner = WINNER_RIGHT;
+        sound.tone(800, 100, 1000, 100, 1200, 100);
         gameState = SCORE;
       }
       if ((xBall == (xRightPlayer + 1)) && !(arduboy.pressed(B_BUTTON)) || (xRightPlayer < 65)) {
         winner = WINNER_LEFT;
+        sound.tone(800, 100, 1000, 100, 1200, 100);
         gameState = SCORE;
       }
 
